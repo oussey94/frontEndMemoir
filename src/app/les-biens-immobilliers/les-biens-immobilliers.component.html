@@ -1,0 +1,58 @@
+<div class="container">
+<h4 *ngIf=" biens && biens.length >0 ">{{title}}</h4>
+<button class="btn btn-primary d-flex" (click)="toggleIsNewBadge()"> 
+    <span class="material-icons">
+        {{showBadge ? "visibility_off" : "visibility"}}
+    </span>
+    <span class="ml-2">
+        {{showBadge ? "cacher" : "afficher"}} nouveau
+    </span>
+</button>
+<hr>
+<div class="my-2">
+  <div class="row">
+    <div class="col-md-4">
+      <span>Filtre actuel: </span>
+      <b>{{bienFilter}}</b>
+    </div>
+    <div class="col-md-8 form-group">
+      <input type="text" class="form-control" [(ngModel)]="bienFilter">
+      <!--<input type="text" class="form-control" [ngModel]="bienFilter" (ngModelChange)="bienFilter=$event"> -->
+
+    </div>
+  </div>
+</div>
+<div class="alert alert-primary" *ngIf="!!receivedRating">
+  {{receivedRating}}
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col mb-4" *ngFor="let bien of filteredBiens">
+      <div class="card">
+        <img 
+        [src]="bien.imageUrl" 
+        [title]="bien.hotelName | titlecase"  
+        class="card-img-top" 
+        [alt]="bien.hotelName"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{bien.hotelName}}</h5>
+          <p class="card-text">{{bien.description}}</p>
+          <p class="card-text">
+            {{bien.price | currency : 'fr' : 'symbol' : '1.0-0' : 'fr'}}
+          </p>
+
+          <div class="d-flex justify-content-between align-items-baseline">
+            <app-notation [rating]="bien.rating" (starRatingClicked)="receiveRatingClicked($event)">
+            </app-notation>
+            <span class="material-icons bg-info text-white p-2 rounded-circle btn" [routerLink]="['/biens', bien.hotelId]">
+              keyboard_arrow_right
+            </span>
+          </div>
+
+          
+          <span class="badge badge-pill badge-info" *ngIf="showBadge"> Nouveau</span>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
