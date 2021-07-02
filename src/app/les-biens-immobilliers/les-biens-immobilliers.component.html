@@ -44,10 +44,14 @@
           <div class="d-flex justify-content-between align-items-baseline">
             <app-notation [rating]="bien.rating" (starRatingClicked)="receiveRatingClicked($event)">
             </app-notation>
-            <span class="material-icons bg-info text-white p-2 rounded-circle btn" [routerLink]="['/biens', bien.hotelId]">
+            <span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/biens', bien.id, 'edit']">
+              edit
+            </span>
+            <span class="material-icons bg-info text-white p-2 rounded-circle btn" [routerLink]="['/biens', bien.id]">
               keyboard_arrow_right
             </span>
           </div>
+          
 
           
           <span class="badge badge-pill badge-info" *ngIf="showBadge"> Nouveau</span>

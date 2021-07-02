@@ -1,7 +1,7 @@
 <div class="container">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" [routerLink]="['/add-bien']">MBODJI M2SIR2020</a>
+      <a class="navbar-brand" [routerLink]="['/add-user']">MBODJI M2SIR2020</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -10,8 +10,19 @@
             <li class="nav-item" routerLinkActive="active">
           <a class="nav-link active" aria-current="page" [routerLink]="['/home']">Acceuil</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           <a class="nav-link" [routerLink]="['/biens']">Liste des biens</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link" [routerLink]="['/biens', '0', 'edit']">Ajouter des biens</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link" [routerLink]="['/visites']">Liste des Visites</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link" [routerLink]="['/add-visite']">Ajouter des visites</a>
         </li>
         </div>
       </div>
@@ -21,7 +32,7 @@
 
 
 <!--<app-les-biens-immobilliers></app-les-biens-immobilliers>-->
-<div class="mt-5">
+<div class="mt-5 container">
     <router-outlet></router-outlet>
 </div>
 </div>

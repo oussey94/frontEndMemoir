@@ -1,5 +1,5 @@
 export class Bien{
-    hotelId: number;
+    id: number;
     hotelName: string;
     description: string;
     price: number;

@@ -20,7 +20,7 @@ export class DetailBienComponent implements OnInit {
     const id: number = +this.route.snapshot.paramMap.get('id');
 
     this.bienImmobillierService.getBiensImmo().subscribe((biens: Bien[]) => {
-      this.bien=biens.find(bien => bien.hotelId == id);
+      this.bien=biens.find(bien => bien.id == id);
       console.log("bien: ",this.bien);
     })
   }

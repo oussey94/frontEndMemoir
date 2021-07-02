@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, ValidatorFn} from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray} from '@angular/forms';
+import {debounceTime} from 'rxjs/operators';
 import { User } from '../model/user.model';
 
 
@@ -34,15 +35,22 @@ function emailMatcher(c : AbstractControl): {[key: string]: boolean} | null {
 
 
 @Component({
-  selector: 'app-add-bien',
-  templateUrl: './add-bien.component.html',
-  styleUrls: ['./add-bien.component.css']
+  selector: 'app-add-user',
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component.css']
 })
-export class AddBienComponent implements OnInit {
+export class AddUserComponent implements OnInit {
 
   public registerForm: FormGroup;
 
   public newUser: User = new User();
+
+  public errorsMsg: string;
+
+  private validationErrorsMessages = {
+    required: 'Entrez votre E-mail',
+    email: 'L\'E-mail n\'est pas valide'
+  };
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -60,13 +68,21 @@ export class AddBienComponent implements OnInit {
       phone:'',
       rating: [null, ratingRangeValidator(1,5)],
       notification: 'email',
-      senCat: false
+      senCat: true,
+      addresses:this.formBuilder.array([this.createAddressGroup()])
+     
     });
 
     this.registerForm.get('notification').valueChanges.subscribe(value => {
       this.setNotificationSettings(value);
     });
-    
+
+    const emailControl = this.registerForm.get('emailGroup.email');
+    emailControl.valueChanges.pipe(debounceTime(1000)).subscribe(val =>{
+      console.log(val);
+      this.setMessage(emailControl);
+    });
+
     /*this.registerForm = new FormGroup({
       prenom: new FormControl(),
       nom: new FormControl(),
@@ -101,6 +117,35 @@ export class AddBienComponent implements OnInit {
 
     phoneControl.updateValueAndValidity();
 
+  }
+
+  private createAddressGroup(): FormGroup {
+    return this.formBuilder.group({
+      addressType: ['home'],
+      street1: [''],
+      street2: [''],
+      city: [''],
+      state: [''],
+      zip: ['']
+    });
+  }
+
+  public get addressList(): FormArray {
+    return <FormArray>this.registerForm.get('addresses');
+  }
+
+  public addAddress(): void {
+    this.addressList.push(this.createAddressGroup());
+  }
+
+  private setMessage(val: AbstractControl): void {
+    this.errorsMsg = '';
+
+    if((val.touched || val.dirty) && val.errors) {
+      this.errorsMsg = Object.keys(val.errors).map(
+        key => this.validationErrorsMessages[key]
+      ).join('');
+    }
   }
 
 }
