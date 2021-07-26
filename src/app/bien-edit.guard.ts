@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
 import { Observable } from 'rxjs';
-import { EditBienComponent } from './edit-bien/edit-bien.component';
+import { EditBienComponent } from './ms_gestion_bien_et_projet/edit-bien/edit-bien.component';
 
 @Injectable({
   providedIn: 'root'

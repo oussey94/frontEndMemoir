@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Reclamation } from 'src/app/model/reclamation';
+import { ReclamationsService } from 'src/app/services/reclamations.service';
 
 @Component({
   selector: 'app-details-reclamation',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsReclamationComponent implements OnInit {
 
-  constructor() { }
+  public reclamation: Reclamation;
+
+  constructor(
+    private router: Router,
+    private reclamationService: ReclamationsService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.reclamationService.getReclamationById(this.activatedRoute.snapshot.params.id).subscribe(r => {
+      this.reclamation = r;
+    });
+  }
+
+  public backToList(): void {
+    this.router.navigate(['/reclamations']);
   }
 
 }

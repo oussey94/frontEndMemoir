@@ -1,1 +1,67 @@
-<p>details-contrat works!</p>
+<div class="container">
+    <div class="card" *ngIf="contrat">
+        <div class="card-header text-white text-center bg-primary">
+            {{contrat.description| uppercase}}
+        </div>
+      
+      <div class="card-body">
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="row">
+                      <div class="col-md-4">Caution</div>
+                      <div class="col-md-8">{{contrat.caution}}</div>
+
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-4">Prix effectif</div>
+                      <div class="col-md-8">{{contrat.prixEffectif}}</div>
+
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-4">Date effectif</div>
+                      <div class="col-md-8">
+                          {{contrat.dateEffectif | date:"dd/MM/yyyy"}}
+                      </div>
+
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-4">Durée du contrat</div>
+                      <div class="col-md-8">
+                          {{contrat.dureeEnNbreDeMois}}
+                      </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">Description du contrat</div>
+                    <div class="col-md-8">
+                        {{contrat.description}}
+                    </div>
+
+                </div>
+
+              </div>
+       <!--
+        <div class="col-md-4">
+          <img 
+              [src]="bien.imageUrl" 
+              [title]="bien.hotelName | titlecase"  
+              class="card-img-top" 
+              [alt]="bien.hotelName"
+          />
+        </div>
+        -->
+      </div>
+    </div>
+
+    <div class="card-footer">
+        <button class="btn btn-outline-primary d-flex" (click)="backToList()">
+            <span class="material-icons">keyboard_arrow_left</span>
+            retour à la liste
+        </button>
+    </div>
+</div>
+</div>

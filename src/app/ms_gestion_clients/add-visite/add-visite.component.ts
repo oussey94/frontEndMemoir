@@ -21,17 +21,26 @@ export class AddVisiteComponent implements OnInit {
 
     this.visiteForm = this.fb.group({
       dateVisite: ['',Validators.required],
-      heureVisite: [' |date:"hh:mm:ss"',Validators.required]
+      heureVisite: ['',Validators.required]
     });
 
   }
 
   addVisite(){
-    this.visiteService.addVisite(this.newVisite).subscribe({
-      next: () => this.saveCompleted(),
-      error: (err) => this.errorMessage = err
+    if(this.visiteForm.valid) {
+      if(this.visiteForm.dirty) {
+        const visite: Visite = {
+          ...this.newVisite,
+          ...this.visiteForm.value
+        };
+
+        this.visiteService.addVisite(visite).subscribe({
+          next: () => this.saveCompleted(),
+          error: (err) => this.errorMessage = err
+        }
+        );
+      }
     }
-    );
 
     //this.router.navigate(["/visites"]);
   }

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card shadow mb-4">
     <div class="text-center">
-      <h2>Ajouter un Produit</h2>
+      <h2>Ajout d'une visite</h2>
       <hr>
     </div>
     <form novalidate (ngSubmit)="addVisite()" [formGroup]="visiteForm" >
@@ -30,7 +30,7 @@
                 <input 
                   id="heureVisiteId"
                   type="time"
-                  value="{{newVisite.heureVisite | date: 'hh:mm:ss'}}" 
+                   
                   class="form-control"
                   formControlName="heureVisite"
                   placeholder="heure de la visite">

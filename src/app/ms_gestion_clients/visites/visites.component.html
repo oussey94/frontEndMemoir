@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card shadow mb-4">
         <table class="table table-striped">
-            <tr><th>idVisite</th><th>Date viste</th><th>Heure visite</th></tr>
+            <tr ><th>idVisite</th><th>Date viste</th><th>Heure visite</th><th>--</th><th>Action</th><th>--</th></tr>
             <thead>
                 <tr>
                     <th>Liste des visites</th>
@@ -10,22 +10,21 @@
             <tbody *ngFor="let visite of visites">
                 <tr>
                     <td>{{visite.idVisite}}</td>
-                    <td>{{visite.dateVisite | date: 'dd/MM/yyyy'}}</td>
-                    <td>{{visite.heureVisite | date: 'hh:mm:ss'}}</td>
+                    <td>{{visite.dateVisite | date:"dd/MM/yyyy"}}</td>
+                    <td>{{visite.heureVisite }}</td>
                    <!-- <td><a class="btn btn-outline-danger" (click)="deleteVisite(visite)">Supprimer</a></td> -->
                     <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/updateVisites', visite.idVisite]">
                         edit
                       </span>
                     </td>
-                    <td><span class="material-icons bg-info text-white p-2 rounded-circle btn" [routerLink]="['/visites', visite.idVisite]">
+                    <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/visites', visite.idVisite]">
                         keyboard_arrow_right
                       </span>
                     </td>
                     <td>
-                        <span class="material-icons-outlined" (click)="deleteVisite(visite)">
+                        <span class="material-icons bg-primary text-white p-2 rounded-circle btn" (click)="deleteVisite(visite)">
                             delete
                             </span>
-                        <button class="btn btn-outline-danger mr-3" type="button" (click)="deleteVisite(visite)">supprimer</button>
                     </td>
                 </tr>
             </tbody>

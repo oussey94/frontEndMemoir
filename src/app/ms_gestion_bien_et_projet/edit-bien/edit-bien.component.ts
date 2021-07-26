@@ -1,8 +1,8 @@
-import { Bien } from './../model/bien.model';
+import { Bien } from '../../model/bien.model';
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
-import { BienImmobillierService } from '../services/bien-immobillier.service';
+import { BienImmobillierService } from '../../services/bien-immobillier.service';
 
 @Component({
   selector: 'app-edit-bien',

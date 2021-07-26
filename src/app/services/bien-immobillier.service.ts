@@ -54,7 +54,10 @@ export class BienImmobillierService {
       description: null,
       price: null,
       rating: null,
-      imageUrl: null
+      imageUrl: null,
+      projet: null,
+      categorie: null,
+      proprietaire: null
     };
   }
 

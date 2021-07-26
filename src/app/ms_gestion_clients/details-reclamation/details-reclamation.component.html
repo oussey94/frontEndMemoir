@@ -1,1 +1,43 @@
-<p>details-reclamation works!</p>
+<div class="container">
+    <div class="card" *ngIf="reclamation">
+        <div class="card-header text-white text-center bg-primary">
+            {{reclamation.commentaire| uppercase}}
+        </div>
+      
+      <div class="card-body">
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="row">
+                      <div class="col-md-4">IdReclamation</div>
+                      <div class="col-md-8">{{reclamation.idReclamation}}</div>
+
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-4">Commentaire</div>
+                      <div class="col-md-8">{{reclamation.commentaire}}</div>
+
+                  </div>
+
+              </div>
+       <!--
+        <div class="col-md-4">
+          <img 
+              [src]="bien.imageUrl" 
+              [title]="bien.hotelName | titlecase"  
+              class="card-img-top" 
+              [alt]="bien.hotelName"
+          />
+        </div>
+        -->
+      </div>
+    </div>
+
+    <div class="card-footer">
+        <button class="btn btn-outline-primary d-flex" (click)="backToList()">
+            <span class="material-icons">keyboard_arrow_left</span>
+            retour à la liste
+        </button>
+    </div>
+</div>
+</div>

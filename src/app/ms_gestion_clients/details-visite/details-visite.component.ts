@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Visite } from 'src/app/model/visite';
+import { VisitesService } from 'src/app/services/visites.service';
 
 @Component({
   selector: 'app-details-visite',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsVisiteComponent implements OnInit {
 
-  constructor() { }
+  public visite: Visite;
+
+  constructor(
+    private router: Router,
+    private visiteService: VisitesService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.visiteService.getVisiteParId(this.activatedRoute.snapshot.params.id).subscribe(v =>{
+      this.visite = v;
+    });
+  }
+
+  public backToList(): void {
+    this.router.navigate(['/visites']);
   }
 
 }

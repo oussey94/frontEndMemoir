@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="text-center bg-primary">
+      <h2 class="card-header text-center bg-primary text-white" >Ajout d'une reclamation</h2>
+    </div>
+    <br>
+    <div class="card-body">
+    <form novalidate (ngSubmit)="ajouterReclamation()" [formGroup]="reclamationForm" >
+
+        <div class="form-group row mb-2">
+            <label for="reclamationCommentaireId" class="col-md-2 col-form-label" >
+                Commentaire
+            </label>
+            <div class="col-md-8">
+                <input 
+                 id="reclamationCommentaireId"
+                 type="textarea"
+                 class="form-control"
+                 formControlName="commentaire"
+                 placeholder="Ecrivez votre reclamation !!!">
+            </div>
+            
+        </div>
+
+        <div class="text-lg-right mt-2">
+                <button type="submit"  class="btn btn-outline-primary mr-3">sauvegarder</button>
+                <button class="btn btn-outline-secondary mr-3" type="button" routerLink="/reclamations">annuler</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>

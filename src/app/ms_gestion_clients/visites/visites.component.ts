@@ -15,7 +15,7 @@ export class VisitesComponent implements OnInit {
 
   ngOnInit(): void {
     this.visiteService.listeDesVisites().subscribe(visitess =>{
-      console.log(visitess);
+      //console.log(visitess);
       this.visites=visitess;
     });
   }

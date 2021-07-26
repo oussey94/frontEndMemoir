@@ -1,6 +1,6 @@
-import { BienImmobillierService } from './../services/bien-immobillier.service';
+import { BienImmobillierService } from '../../services/bien-immobillier.service';
 import { Component, OnInit } from '@angular/core';
-import { Bien } from '../model/bien.model';
+import { Bien } from '../../model/bien.model';
 
 @Component({
   selector: 'app-les-biens-immobilliers',

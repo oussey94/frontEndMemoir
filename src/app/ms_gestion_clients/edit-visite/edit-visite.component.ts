@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Visite } from 'src/app/model/visite';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-edit-visite',
@@ -15,7 +16,7 @@ export class EditVisiteComponent implements OnInit {
   visites: Visite[];
   public visiteForm : FormGroup;
   public pageTitle: string;
-  errorMessage: string = "Probléme lors de l'ajout !!!";
+  errorMessage: string = "Probléme lors de la modification !!!";
 
 
   constructor(
@@ -29,7 +30,7 @@ export class EditVisiteComponent implements OnInit {
 
     this.visiteForm = this.fb.group({
       dateVisite : ['',Validators.required],
-      heureVisite: [' |date:"hh:mm:ss"',Validators.required]
+      heureVisite: ['',Validators.required]
     });
 
     this.visiteService.getVisiteParId(this.activatedRoute.snapshot.params.id).subscribe((visite: Visite) =>{
@@ -38,10 +39,20 @@ export class EditVisiteComponent implements OnInit {
   }
 
   updateVisite(){
-    this.visiteService.updateVisite(this.activatedRoute.snapshot.params.id, this.current_visite).subscribe({
-      next: () => this.saveCompleted(),
-      error: (err) => this.errorMessage = err
-    });
+    if(this.visiteForm.valid) {
+      if(this.visiteForm.dirty) {
+        const visite: Visite = {
+          ...this.current_visite,
+          ...this.visiteForm.value
+        };
+
+        this.visiteService.updateVisite(this.activatedRoute.snapshot.params.id, visite).subscribe({
+          next: () => this.saveCompleted(),
+          error: (err) => this.errorMessage = err
+        });
+      }
+    }
+    
   }
 
   public saveCompleted(): void {

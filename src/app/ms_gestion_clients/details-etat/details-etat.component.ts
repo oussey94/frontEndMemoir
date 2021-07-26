@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Etat } from 'src/app/model/etat';
+import { EtatsService } from 'src/app/services/etats.service';
 
 @Component({
   selector: 'app-details-etat',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsEtatComponent implements OnInit {
 
-  constructor() { }
+  public etat: Etat;
+
+  constructor(
+    private router: Router,
+    private etatService: EtatsService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.etatService.getEtatById(this.activatedRoute.snapshot.params.id).subscribe(c => {
+      this.etat = c;
+    });
+  }
+
+  public backToList(): void {
+    this.router.navigate(['/etats']);
   }
 
 }

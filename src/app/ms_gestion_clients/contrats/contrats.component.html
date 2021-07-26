@@ -1,1 +1,39 @@
-<p>contrats works!</p>
+<div class="container">
+    <div class="card shadow mb-4">
+        <table class="table table-striped">
+            <tr class="bg-primary text-white"><th>idContrat</th><th>caution</th><th>prixEffectif</th><th>dateEffectif</th><th>dureeEnNbrDeMois</th><th>description</th><th>--</th><th>Action</th><th>--</th></tr>
+            <thead>
+                <tr>
+                    <th>Liste des contrats</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let contrat of contrats">
+                <tr>
+                    <td>{{contrat.idContrat}}</td>
+                    <td>{{contrat.caution}}</td>
+                    <td>{{contrat.prixEffectif}}</td>
+                    <td>{{contrat.dateEffectif | date:"dd/MM/yyyy"}}</td>
+                    <td>{{contrat.dureeEnNbreDeMois}}</td>
+                    <td>{{contrat.description}}</td>
+                   <!-- <td><a class="btn btn-outline-danger" (click)="deleteVisite(visite)">Supprimer</a></td> -->
+                    <td>
+                        <span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/updateContrats', contrat.idContrat]">
+                        edit
+                      </span>
+                    </td>
+                    <td>
+                        <span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/contrats', contrat.idContrat]">
+                        keyboard_arrow_right
+                      </span>
+                    </td>
+                    <td>
+                        <span class="material-icons bg-primary text-white p-2 rounded-circle btn" (click)="supprimerContrat(contrat)">
+                            delete
+                        </span>
+                        <!--<button class="btn btn-outline-danger mr-3" type="button" (click)="deleteVisite(visite)">supprimer</button> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

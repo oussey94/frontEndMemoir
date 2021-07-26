@@ -1,1 +1,33 @@
-<p>reclamations works!</p>
+<div class="container">
+    <div class="card shadow mb-4">
+        <table class="table table-striped">
+            <tr><th>idReclamation</th><th>Commentaire</th><th>--</th><th>Action</th><th>--</th></tr>
+            <thead>
+                <tr>
+                    <th>Liste des reclamations</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let reclamation of reclamations">
+                <tr>
+                    <td>{{reclamation.idReclamation}}</td>
+                    <td>{{reclamation.commentaire}}</td>
+                   <!-- <td><a class="btn btn-outline-danger" (click)="deleteVisite(visite)">Supprimer</a></td> -->
+                    <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/updateReclamations', reclamation.idReclamation]">
+                        edit
+                      </span>
+                    </td>
+                    <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/reclamations', reclamation.idReclamation]">
+                        keyboard_arrow_right
+                      </span>
+                    </td>
+                    <td>
+                        <span class="material-icons bg-primary text-white p-2 rounded-circle btn" (click)="supprimerReclamation(reclamation)">
+                            delete
+                            </span>
+                        <!--<button class="btn btn-outline-danger mr-3" type="button" (click)="deleteVisite(visite)">supprimer</button> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

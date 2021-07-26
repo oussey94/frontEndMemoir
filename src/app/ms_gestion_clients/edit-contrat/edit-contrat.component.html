@@ -1,1 +1,93 @@
-<p>edit-contrat works!</p>
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="text-center bg-primary">
+      <h2 class="card-header text-center bg-primary text-white">Modification du contrat</h2>
+    </div>
+    <br>
+    <div class="card-body">
+    <form novalidate (ngSubmit)="updateUnContrat()" [formGroup]="contratForm" >
+
+        <div class="form-group row mb-2">
+            <label for="contratCautionId" class="col-md-2 col-form-label" >
+                Caution
+            </label>
+            <div class="col-md-8">
+                <input 
+                 id="contratCautionId"
+                 type="number" 
+                 class="form-control"
+                 formControlName="caution"
+                 placeholder="le caution du contrat">
+            </div>
+            
+        </div>
+
+        <div class="form-group row mb-2">
+            <label for="contratPrixEffectifId" class="col-md-2 col-form-label" >
+                Prix effectif
+            </label>
+            <div class="col-md-8">
+                <input 
+                 id="contratPrixEffectifId"
+                 type="number" 
+                 class="form-control"
+                 formControlName="prixEffectif"
+                 placeholder="le prix effectif du contrat">
+            </div>
+            
+        </div>
+
+        <div class="form-group row mb-2">
+            <label for="contratDateEffectifId" class="col-md-2 col-form-label" >
+                Date effectif
+            </label>
+            <div class="col-md-8">
+                <input 
+                 id="contratDateEffectifId"
+                 type="date" 
+                 
+                 class="form-control"
+                 formControlName="dateEffectif"
+                 placeholder="la date effectif du contrat">
+            </div>
+            
+        </div>
+
+        <div class="form-group row mb-2" >
+            <label for="dureeEnNbreDeMoisId" class="col-md-2 col-form-label" >
+                La durée du contrat
+            </label>
+            <div class="col-md-8">
+                <input 
+                  id="dureeEnNbreDeMoisId"
+                  type="number"
+                  class="form-control"
+                  formControlName="dureeEnNbreDeMois"
+                  placeholder="la durée du contrat en nombre de mois">
+            </div>
+            
+        </div>
+
+        <div class="form-group row mb-2">
+            <label for="descriptionId" class="col-md-2 col-form-label" >
+                Description
+            </label>
+            <div class="col-md-8">
+                <input 
+                 id="descriptionId"
+                 type="textarea"
+                 class="form-control"
+                 formControlName="description"
+                 placeholder="la description du contrat !!!">
+            </div>
+            
+        </div>
+
+        <div class="text-lg-right mt-2">
+                <button type="submit"  class="btn btn-outline-primary mr-3">sauvegarder</button>
+                <button class="btn btn-outline-secondary mr-3" type="button" routerLink="/contrats">annuler</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>

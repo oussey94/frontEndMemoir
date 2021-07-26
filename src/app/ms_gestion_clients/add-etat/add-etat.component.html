@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="text-center bg-primary">
+      <h2 class="card-header text-center bg-primary text-white">Ajout d'un etat</h2>
+    </div>
+    <br>
+    <div class="card-body">
+    <form novalidate (ngSubmit)="ajouterEtat()" [formGroup]="etatForm" >
+
+        <div class="form-group row mb-2">
+            <label for="nomEtatId" class="col-md-2 col-form-label" >
+                Etat
+            </label>
+            <div class="col-md-8">
+                <input 
+                 id="nomEtatId"
+                 type="text"
+                 class="form-control"
+                 formControlName="nomEtat"
+                 placeholder="Etat de la reclamation !!!">
+            </div>
+            
+        </div>
+
+        <div class="text-lg-right mt-2">
+                <button type="submit"  class="btn btn-outline-primary mr-3">sauvegarder</button>
+                <button class="btn btn-outline-secondary mr-3" type="button" routerLink="/etats">annuler</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>

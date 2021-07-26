@@ -1,1 +1,33 @@
-<p>etats works!</p>
+<div class="container">
+    <div class="card shadow mb-4">
+        <table class="table table-striped">
+            <tr><th>idEtat</th><th>nomEtat</th><th>--</th><th>Action</th><th>--</th></tr>
+            <thead>
+                <tr>
+                    <th class="text-center">Liste des etats</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let etat of etats">
+                <tr>
+                    <td>{{etat.idEtat}}</td>
+                    <td>{{etat.nomEtat}}</td>
+                   <!-- <td><a class="btn btn-outline-danger" (click)="deleteVisite(visite)">Supprimer</a></td> -->
+                    <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/updateEtats', etat.idEtat]">
+                        edit
+                      </span>
+                    </td>
+                    <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/etats', etat.idEtat]">
+                        keyboard_arrow_right
+                      </span>
+                    </td>
+                    <td>
+                        <span class="material-icons bg-primary text-white p-2 rounded-circle btn" (click)="supprimerEtat(etat)">
+                            delete
+                            </span>
+                        <!--<button class="btn btn-outline-danger mr-3" type="button" (click)="deleteVisite(visite)">supprimer</button> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

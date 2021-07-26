@@ -1,5 +1,5 @@
-import { BienImmobillierService } from './../services/bien-immobillier.service';
-import { Bien } from './../model/bien.model';
+import { BienImmobillierService } from '../../services/bien-immobillier.service';
+import { Bien } from '../../model/bien.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,7 +12,8 @@ export class DetailBienComponent implements OnInit {
 
   public bien: Bien= <Bien>{};
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     private bienImmobillierService: BienImmobillierService,
     private router: Router) { }
 
