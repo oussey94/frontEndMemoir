@@ -1,6 +1,7 @@
-import { User } from "./user.model";
+import { Utilisateur } from './utilisateur';
+
 
 export class Proprietaire {
 
-    user: User;
+    utilisateur!: Utilisateur;
 }

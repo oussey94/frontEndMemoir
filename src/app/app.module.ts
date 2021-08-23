@@ -33,6 +33,24 @@ import { ProjetComponent } from './ms_gestion_bien_et_projet/projet/projet.compo
 import { DetailsProjetComponent } from './ms_gestion_bien_et_projet/details-projet/details-projet.component';
 import { EditProjetComponent } from './ms_gestion_bien_et_projet/edit-projet/edit-projet.component';
 import { AddProjetComponent } from './ms_gestion_bien_et_projet/add-projet/add-projet.component';
+import { UtilisateursComponent } from './ms_gestion_utilisateurs/utilisateurs/utilisateurs.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClientsComponent } from './ms_gestion_utilisateurs/clients/clients.component';
+import { ProprietairesComponent } from './ms_gestion_utilisateurs/proprietaires/proprietaires.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { EditUtilisateurComponent } from './ms_gestion_utilisateurs/edit-utilisateur/edit-utilisateur.component';
+import { EditClientComponent } from './ms_gestion_utilisateurs/edit-client/edit-client.component';
+import { EditProprietaireComponent } from './ms_gestion_utilisateurs/edit-proprietaire/edit-proprietaire.component';
+import { ConfirmeDialogueUtilisateurComponent } from './ms_gestion_utilisateurs/confirme-dialogue-utilisateur/confirme-dialogue-utilisateur.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+
+
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
@@ -64,16 +82,33 @@ registerLocaleData(localeFr, 'fr');
     ProjetComponent,
     DetailsProjetComponent,
     EditProjetComponent,
-    AddProjetComponent
+    AddProjetComponent,
+    UtilisateursComponent,
+    ClientsComponent,
+    ProprietairesComponent,
+    EditUtilisateurComponent,
+    EditClientComponent,
+    EditProprietaireComponent,
+    ConfirmeDialogueUtilisateurComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
     HttpClientModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
+    MatDialogModule,
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EditUtilisateurComponent]
 })
 export class AppModule { }

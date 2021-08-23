@@ -1,7 +1,8 @@
-import { User } from "./user.model";
+import { Utilisateur } from './utilisateur';
+
 
 export class Client {
 
-    user: User;
+    utilisateur!: Utilisateur;
 
 }

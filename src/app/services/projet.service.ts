@@ -8,7 +8,7 @@ import { Projet } from '../model/projet';
 })
 export class ProjetService {
 
-  private url_projet: string;
+  private url_projet: string="http://localhost:8082/projets";
 
   constructor(private http: HttpClient) { }
 

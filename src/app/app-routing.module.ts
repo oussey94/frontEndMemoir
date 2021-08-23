@@ -26,6 +26,9 @@ import { EditVisiteComponent } from './ms_gestion_clients/edit-visite/edit-visit
 import { EtatsComponent } from './ms_gestion_clients/etats/etats.component';
 import { ReclamationsComponent } from './ms_gestion_clients/reclamations/reclamations.component';
 import { VisitesComponent } from './ms_gestion_clients/visites/visites.component';
+import { ClientsComponent } from './ms_gestion_utilisateurs/clients/clients.component';
+import { ProprietairesComponent } from './ms_gestion_utilisateurs/proprietaires/proprietaires.component';
+import { UtilisateursComponent } from './ms_gestion_utilisateurs/utilisateurs/utilisateurs.component';
 import { PageAcceuilComponent } from './page-acceuil/page-acceuil.component';
 
 const routes: Routes = [
@@ -37,6 +40,9 @@ const routes: Routes = [
   {path: 'etats', component: EtatsComponent},
   {path: 'contrats', component: ContratsComponent},
   {path: 'projets', component: ProjetComponent},
+  {path: 'utilisateurs', component: UtilisateursComponent},
+  {path: 'proprietaire', component: ProprietairesComponent},
+  {path: 'clients', component: ClientsComponent},
 
   {path: 'biens/:id', component: DetailBienComponent, canActivate: [DetailBienGuard] },
   {path: 'visites/:id', component: DetailsVisiteComponent},
