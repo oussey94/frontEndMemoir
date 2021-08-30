@@ -9,5 +9,5 @@ export class Visite {
     heureVisite: Time;
     bien: Bien;
     contrat: Contrat;
-    clent: Client;
+    client: Client;
 }

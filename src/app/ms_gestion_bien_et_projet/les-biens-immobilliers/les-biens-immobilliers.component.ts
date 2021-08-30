@@ -1,6 +1,7 @@
 import { BienImmobillierService } from '../../services/bien-immobillier.service';
 import { Component, OnInit } from '@angular/core';
 import { Bien } from '../../model/bien.model';
+import { BienService } from 'src/app/services/bien.service';
 
 @Component({
   selector: 'app-les-biens-immobilliers',
@@ -23,15 +24,25 @@ export class LesBiensImmobilliersComponent implements OnInit {
         this.showBadge= !this.showBadge;
   }
 
-  constructor(private bienImmobillierService: BienImmobillierService) { }
+  constructor(
+        public bienImmobillierService: BienService
+        ) { }
 
   ngOnInit(): void {
-        this.bienImmobillierService.getBiensImmo().subscribe({
+        this.bienImmobillierService.getAllBiens().subscribe(
+              b =>{
+                    console.log("ousseyyyyy: ",b);
+                    this.biens = b;
+                    this.filteredBiens = this.biens;
+              }
+              
+            /*{
             next: biens =>{this.biens=biens;
                   this.filteredBiens=this.biens;
             }, 
             error: err => this.errMsg=err
-        });
+        }*/
+        );
         //this.filteredBiens=this.biens;
         this.bienFilter='';
         //console.log("mon niveau de vie initial fonctionne")
@@ -54,7 +65,7 @@ private filterBiens(criteria: string): Bien[]{
       criteria=criteria.toLocaleLowerCase();
 
       const res=this.biens.filter(
-            (bien: Bien) => bien.hotelName.toLocaleLowerCase().indexOf(criteria) != -1
+            (bien: Bien) => bien.nomBien.toLocaleLowerCase().indexOf(criteria) != -1
             );
        return res;
 }

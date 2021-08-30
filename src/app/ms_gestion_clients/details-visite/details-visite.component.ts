@@ -10,7 +10,7 @@ import { VisitesService } from 'src/app/services/visites.service';
 })
 export class DetailsVisiteComponent implements OnInit {
 
-  public visite: Visite;
+  public visit;
 
   constructor(
     private router: Router,
@@ -20,7 +20,8 @@ export class DetailsVisiteComponent implements OnInit {
 
   ngOnInit(): void {
     this.visiteService.getVisiteParId(this.activatedRoute.snapshot.params.id).subscribe(v =>{
-      this.visite = v;
+      console.log("vvvvvvvvvvvv :",v);
+      this.visit = v;
     });
   }
 

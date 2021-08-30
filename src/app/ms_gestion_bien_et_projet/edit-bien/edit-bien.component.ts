@@ -1,3 +1,4 @@
+import { BienService } from './../../services/bien.service';
 import { Bien } from '../../model/bien.model';
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms'
@@ -19,13 +20,13 @@ export class EditBienComponent implements OnInit {
   constructor(
               private fb: FormBuilder, 
               private route: ActivatedRoute, 
-              private bienService: BienImmobillierService,
+              private bienService: BienService,
               private router: Router) { }
 
   ngOnInit(): void {
     this.bienForm = this.fb.group({
       hotelName: ['', Validators.required],
-      price: ['', Validators.required],
+      prix: ['', Validators.required],
       rating: [''],
       description: ['']
     });
@@ -50,12 +51,12 @@ export class EditBienComponent implements OnInit {
     if(this.bien.id === 0) {
       this.pageTitle = 'Créer un bien';
     } else {
-      this.pageTitle=`Modifier le bien ${this.bien.hotelName}`;
+      this.pageTitle=`Modifier le bien ${this.bien.nomBien}`;
     }
     
     this.bienForm.patchValue({
-      hotelName: this.bien.hotelName,
-      price: this.bien.price,
+      hotelName: this.bien.nomBien,
+      prix: this.bien.prix,
       rating: this.bien.rating,
       description: this.bien.description
     });
@@ -71,11 +72,11 @@ export class EditBienComponent implements OnInit {
 
           //add or edit
           if(bien.id === 0) {
-              this.bienService.createBien(bien).subscribe({
+              this.bienService.addBien(bien).subscribe({
                 next: () => this.saveCompleted()
               });
           }else {
-            this.bienService.updateBien(bien).subscribe({
+            this.bienService.updateBien(bien.id, bien).subscribe({
             next: () => this.saveCompleted(),
             error: (err) =>this.errorMessage=err});
           }
@@ -89,7 +90,7 @@ export class EditBienComponent implements OnInit {
   }
 
   public deleteBienImmo(): void{
-    if(confirm(`Voulez-vous réelement supprimer ${this.bien.hotelName} ?`)) {
+    if(confirm(`Voulez-vous réelement supprimer ${this.bien.nomBien} ?`)) {
       this.bienService.deleteBien(this.bien.id).subscribe({
         next: () =>this.saveCompleted()
       });

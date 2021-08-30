@@ -29,16 +29,16 @@
     <div class="col mb-4" *ngFor="let bien of filteredBiens">
       <div class="card">
         <img 
-        [src]="bien.imageUrl" 
-        [title]="bien.hotelName | titlecase"  
+        src="{{this.bienImmobillierService.bien_url+'/photoBien/'+bien.id}}" 
+        [title]="bien.nomBien| titlecase"  
         class="card-img-top" 
-        [alt]="bien.hotelName"
+        [alt]="bien.nomBien"
         />
         <div class="card-body">
-          <h5 class="card-title">{{bien.hotelName}}</h5>
+          <h5 class="card-title">{{bien.nomBien}}</h5>
           <p class="card-text">{{bien.description}}</p>
           <p class="card-text">
-            {{bien.price | currency : 'fr' : 'symbol' : '1.0-0' : 'fr'}}
+            {{bien.prix| currency : 'fr' : 'symbol' : '1.0-0' : 'fr'}}
           </p>
 
           <div class="d-flex justify-content-between align-items-baseline">

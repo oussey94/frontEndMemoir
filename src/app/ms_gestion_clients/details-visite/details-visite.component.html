@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="card" *ngIf="visite">
-        <div class="card-header text-white text-center bg-primary">
-           La personne qui a visité
+    <div class="card" *ngIf="visit">
+        <div class="card-header text-white text-center bg-primary text-uppercase">
+           Les détails de la visite
         </div>
       
       <div class="card-body">
@@ -9,15 +9,33 @@
               <div class="col-md-8">
                   <div class="row">
                       <div class="col-md-4">Date de la visite</div>
-                      <div class="col-md-8">{{visite.dateVisite | date:"dd/MM/yyyy"}}</div>
+                      <div class="col-md-8">{{visit.dateVisite | date:"dd/MM/yyyy"}}</div>
 
                   </div>
 
                   <div class="row">
                       <div class="col-md-4">Heure de la visite</div>
-                      <div class="col-md-8">{{visite.heureVisite}}</div>
+                      <div class="col-md-8">{{visit.heureVisite}}</div>
 
                   </div>
+
+                  <div class="row">
+                    <div class="col-md-4">Client</div>
+                    <div class="col-md-8">{{visit.clientBean.nom}} {{visit.clientBean.prenom}}</div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Bien immobillier</div>
+                    <div class="col-md-8">{{visit.bienImmobiliereBean.nomBien}}</div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Description du Bien</div>
+                    <div class="col-md-8">{{visit.bienImmobiliereBean.description}}</div>
+
+                </div>
 
               </div>
        <!--

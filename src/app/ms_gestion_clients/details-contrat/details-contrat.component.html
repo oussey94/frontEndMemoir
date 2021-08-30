@@ -1,20 +1,51 @@
 <div class="container">
     <div class="card" *ngIf="contrat">
-        <div class="card-header text-white text-center bg-primary">
-            {{contrat.description| uppercase}}
+        <div class="card-header text-white text-center bg-primary text-uppercase">
+            Les details du contrat
         </div>
       
       <div class="card-body">
           <div class="row">
               <div class="col-md-8">
+
+                <div class="row">
+                    <div class="col-md-4">Client</div>
+                    <div class="col-md-8">{{contrat.clientBean.nom}} {{contrat.clientBean.prenom}}</div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Courriel</div>
+                    <div class="col-md-8">{{contrat.clientBean.email}}</div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Telephone</div>
+                    <div class="col-md-8">{{contrat.clientBean.telephone1}}</div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Adresse</div>
+                    <div class="col-md-8">{{contrat.clientBean.adresse}}</div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Ville</div>
+                    <div class="col-md-8">{{contrat.clientBean.ville}}</div>
+
+                </div>
+
                   <div class="row">
-                      <div class="col-md-4">Caution</div>
+                      <div class="col-md-4">Caution (en fcfa)</div>
                       <div class="col-md-8">{{contrat.caution}}</div>
 
                   </div>
 
                   <div class="row">
-                      <div class="col-md-4">Prix effectif</div>
+                      <div class="col-md-4">Prix effectif (en fcfa)</div>
                       <div class="col-md-8">{{contrat.prixEffectif}}</div>
 
                   </div>
@@ -30,7 +61,7 @@
                   <div class="row">
                       <div class="col-md-4">Durée du contrat</div>
                       <div class="col-md-8">
-                          {{contrat.dureeEnNbreDeMois}}
+                          {{contrat.dureeEnNbrDeMois}} mois
                       </div>
 
                   </div>

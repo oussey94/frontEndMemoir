@@ -10,7 +10,7 @@ import { ContratsService } from 'src/app/services/contrats.service';
 })
 export class DetailsContratComponent implements OnInit {
 
-  public contrat: Contrat; // = <Contrat>{};
+  public contrat; // = <Contrat>{};
 
   constructor(
     private contratService: ContratsService,
@@ -24,6 +24,7 @@ export class DetailsContratComponent implements OnInit {
       console.log("contrat:", this.contrat);
     });*/
     this.contratService.getContratById(this.activatedRoute.snapshot.params.id).subscribe(con => {
+      console.log("contrattss:",con);
       this.contrat = con;
       //console.log("contrat:", this.contrat);
     });

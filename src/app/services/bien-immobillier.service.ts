@@ -19,7 +19,7 @@ export class BienImmobillierService {
       catchError(this.handleError)
     ); 
   }
-
+/*
   public getBienById(id: number): Observable<Bien>{
     const url= `${this.biens_url}/${id}`;
     if(id === 0) {
@@ -60,6 +60,7 @@ export class BienImmobillierService {
       proprietaire: null
     };
   }
+  */
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
