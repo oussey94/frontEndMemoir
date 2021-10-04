@@ -15,10 +15,10 @@ export class Bien{
     proprietaire: Proprietaire;
     */
 
-    id: number;
+    idBienImmo: number;
     nomBien: string;
     available: boolean;
-    photoName: string;
+    photoName: File;
     prix: number;
     localisation: string;
     selected: boolean;

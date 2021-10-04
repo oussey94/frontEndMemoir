@@ -1,4 +1,4 @@
-import { UtilisateurService } from './../../services/utilisateur.service';
+import { UtilisateurService } from './../../services/gestion-utilisateur/utilisateur.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';

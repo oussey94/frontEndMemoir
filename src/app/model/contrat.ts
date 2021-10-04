@@ -1,3 +1,4 @@
+import { Bien } from './bien.model';
 import { Reclamation } from './reclamation';
 import { Visite } from 'src/app/model/visite';
 import { Client } from './client';
@@ -6,9 +7,10 @@ export class Contrat {
     caution: number;
     prixEffectif: number;
     dateEffectif: Date;
-    dureeEnNbreDeMois: number;
+    dureeEnNbrDeMois: number;
     description: string;
-    visite: Visite;
-    reclamation: Reclamation;
     client: Client;
+    bien: Bien
+    clientID: number;
+    bienImmobiliereID: number;
 }

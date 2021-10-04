@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="card" *ngIf="contrat">
+    <div class="card shadow mb-4" *ngIf="contrat">
         <div class="card-header text-white text-center bg-primary text-uppercase">
             Les details du contrat
         </div>
@@ -13,42 +13,49 @@
                     <div class="col-md-8">{{contrat.clientBean.nom}} {{contrat.clientBean.prenom}}</div>
 
                 </div>
+                <hr>
 
                 <div class="row">
                     <div class="col-md-4">Courriel</div>
                     <div class="col-md-8">{{contrat.clientBean.email}}</div>
 
                 </div>
+                <hr>
 
                 <div class="row">
                     <div class="col-md-4">Telephone</div>
                     <div class="col-md-8">{{contrat.clientBean.telephone1}}</div>
 
                 </div>
+                <hr>
 
                 <div class="row">
                     <div class="col-md-4">Adresse</div>
                     <div class="col-md-8">{{contrat.clientBean.adresse}}</div>
 
                 </div>
+                <hr>
 
                 <div class="row">
                     <div class="col-md-4">Ville</div>
                     <div class="col-md-8">{{contrat.clientBean.ville}}</div>
 
                 </div>
+                <hr>
 
                   <div class="row">
                       <div class="col-md-4">Caution (en fcfa)</div>
                       <div class="col-md-8">{{contrat.caution}}</div>
 
                   </div>
+                  <hr>
 
                   <div class="row">
                       <div class="col-md-4">Prix effectif (en fcfa)</div>
                       <div class="col-md-8">{{contrat.prixEffectif}}</div>
 
                   </div>
+                  <hr>
 
                   <div class="row">
                       <div class="col-md-4">Date effectif</div>
@@ -57,6 +64,7 @@
                       </div>
 
                   </div>
+                  <hr>
 
                   <div class="row">
                       <div class="col-md-4">Durée du contrat</div>
@@ -65,6 +73,7 @@
                       </div>
 
                   </div>
+                  <hr>
 
                   <div class="row">
                     <div class="col-md-4">Description du contrat</div>
@@ -73,18 +82,18 @@
                     </div>
 
                 </div>
+                <hr>
 
               </div>
-       <!--
+       
         <div class="col-md-4">
           <img 
-              [src]="bien.imageUrl" 
-              [title]="bien.hotelName | titlecase"  
-              class="card-img-top" 
-              [alt]="bien.hotelName"
-          />
+        src="{{this.bienImmobillierService.bien_url+'/photoBien/'+contrat.bienImmobiliereBean.idBienImmo}}" 
+        [title]="contrat.bienImmobiliereBean.nomBien| titlecase"  
+        class="card-img-top" 
+        [alt]="contrat.bienImmobiliereBean.nomBien"
+        />
         </div>
-        -->
       </div>
     </div>
 

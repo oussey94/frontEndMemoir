@@ -49,6 +49,8 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { AddBienComponent } from './ms_gestion_bien_et_projet/add-bien/add-bien.component';
+import { UpdateBienComponent } from './ms_gestion_bien_et_projet/update-bien/update-bien.component';
 
 
 registerLocaleData(localeFr, 'fr');
@@ -89,7 +91,9 @@ registerLocaleData(localeFr, 'fr');
     EditUtilisateurComponent,
     EditClientComponent,
     EditProprietaireComponent,
-    ConfirmeDialogueUtilisateurComponent
+    ConfirmeDialogueUtilisateurComponent,
+    AddBienComponent,
+    UpdateBienComponent,
   ],
   imports: [
     BrowserModule,

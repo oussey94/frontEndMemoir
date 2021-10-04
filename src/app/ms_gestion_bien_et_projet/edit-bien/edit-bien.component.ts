@@ -1,9 +1,9 @@
-import { BienService } from './../../services/bien.service';
+import { BienService } from '../../services/gestion-bien-et-projet/bien.service';
 import { Bien } from '../../model/bien.model';
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
-import { BienImmobillierService } from '../../services/bien-immobillier.service';
+//import { BienImmobillierService } from '../../services/bien-immobillier.service';
 
 @Component({
   selector: 'app-edit-bien',
@@ -46,7 +46,7 @@ export class EditBienComponent implements OnInit {
   }
 
   public displayedBien(bien: Bien): void {
-    this.bien = bien;
+    /*this.bien = bien;
 
     if(this.bien.id === 0) {
       this.pageTitle = 'Créer un bien';
@@ -59,11 +59,11 @@ export class EditBienComponent implements OnInit {
       prix: this.bien.prix,
       rating: this.bien.rating,
       description: this.bien.description
-    });
+    });*/
   }
 
   public saveBienImmo(): void {
-      if(this.bienForm.valid) {
+      /*if(this.bienForm.valid) {
         if(this.bienForm.dirty) {
           const bien: Bien = {
             ...this.bien,
@@ -81,7 +81,7 @@ export class EditBienComponent implements OnInit {
             error: (err) =>this.errorMessage=err});
           }
         }
-      }
+      }*/
   }
 
   public saveCompleted(): void {
@@ -89,12 +89,12 @@ export class EditBienComponent implements OnInit {
     this.router.navigate(['/biens']);
   }
 
-  public deleteBienImmo(): void{
+  public deleteBienImmo(): void{/*
     if(confirm(`Voulez-vous réelement supprimer ${this.bien.nomBien} ?`)) {
       this.bienService.deleteBien(this.bien.id).subscribe({
         next: () =>this.saveCompleted()
       });
-    }
+    }*/
   }
 
 }

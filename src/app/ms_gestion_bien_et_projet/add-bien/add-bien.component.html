@@ -1,0 +1,169 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header text-white bg-success">
+            Ajout d'un bien
+        </div>
+        <div class="card-body">
+            <form novalidate (ngSubmit)="ajoutBien()" [formGroup]="bienForm">
+                <div class="form-group row mb-2">
+                    <label for="hotelNameId" class="col-md-2 col-form-label">
+                        Nom bien
+                    </label>
+                    <div class="col-md-8">
+                        <input 
+                            id="hotelNameId"
+                            type="text" 
+                            class="form-control" 
+                            formControlName="nomBien"
+                            placeholder="Nom(obligatoire)">
+                    </div>
+                </div>
+    
+                <div class="form-group row mb-2">
+                    <label for="hotelPriceId" class="col-md-2 col-form-label">
+                        Prix
+                    </label>
+                    <div class="col-md-8">
+                        <input 
+                           id="hotelPriceId"
+                           type="number" 
+                           class="form-control"
+                           formControlName="prix" 
+                           placeholder="Prix(obligatoire)">
+                    </div>
+                </div>
+    
+                <div class="form-group row mb-2">
+                    <label for="starRatingId" class="col-md-2 col-form-label">
+                        Evaluation (1-5)
+                    </label>
+                    <div class="col-md-8">
+                        <input 
+                            id="starRatingId"
+                            type="number" 
+                            class="form-control"
+                            formControlName="rating"
+                            placeholder="Evaluation(1-5)">
+                    </div>
+                </div>
+    
+                <div class="form-group row mb-2">
+                    <label for="descriptionId" class="col-md-2 col-form-label">
+                        Description
+                    </label>
+                    <div class="col-md-8">
+                        <textarea 
+                             class="form-control" 
+                             formControlName="description"
+                             id="descriptionId">
+                        </textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-2">
+                    <label for="disponibleId" class="col-md-2 col-form-label">
+                        Disponible
+                    </label>
+                    <div class="col-md-8">
+                        <input 
+                            id="disponibleId"
+                            type="text" 
+                            class="form-control" 
+                            formControlName="available"
+                            placeholder="disponibilité">
+                    </div>
+                </div>
+                
+                <div class="form-group row mb-2">
+                    <label for="localisationId" class="col-md-2 col-form-label">
+                        Localisation
+                    </label>
+                    <div class="col-md-8">
+                        <input 
+                            id="localisationId"
+                            type="text" 
+                            class="form-control" 
+                            formControlName="localisation"
+                            placeholder="la localisation">
+                    </div>
+                </div>
+
+                <div class="form-group row mb-2">
+                    <label for="tailleId" class="col-md-2 col-form-label">
+                        Taille
+                    </label>
+                    <div class="col-md-8">
+                        <input 
+                            id="tailleId"
+                            type="number" 
+                            class="form-control" 
+                            formControlName="taille"
+                            placeholder="la taille">
+                    </div>
+                </div>
+
+                <div class="form-group row mb-2">
+                    <label for="selectionId" class="col-md-2 col-form-label">
+                        Selectionner
+                    </label>
+                    <div class="col-md-8">
+                        <input 
+                            id="selectionId"
+                            type="text" 
+                            class="form-control" 
+                            formControlName="selected"
+                            placeholder="Selectionner">
+                    </div>
+                </div>
+
+                <div class="form-group row mb-2">
+                    <label for="photoId" class="col-md-2 col-form-label">
+                        Photo
+                    </label>
+                    <div class="col-md-8">
+                         <!-- Progress Bar -->
+                       <div class="progress form-group" *ngIf="progress > 0">
+                         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="progress">
+                         </div>
+                      </div>
+
+                     <div class="form-group">
+                         <input type="file" (change)="uploadFile($event)">
+                     </div>
+
+                     <div class="form-group input-group-lg">
+                       <input id="photoId" type="text" class="form-control" placeholder="photoName" formControlName="photoName">
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-danger btn-block btn-lg" (click)="chargerImage()">Create</button>
+                    </div>
+                    </div>
+                </div>
+    
+                <div class="form-group row mb-2">
+                    <div class="offset-md-2 col-md-4">
+                        <button class="btn btn-outline-success mr-3" type="submit">sauvegarder</button>
+                        <button class="btn btn-outline-secondary mr-3" type="button" routerLink="/biens">annuler</button>
+                        <!-- <button 
+                               class="btn btn-outline-danger mr-3" 
+                               type="button" 
+                               [disabled]="bien.id === 0"
+                               (click)="deleteBienImmo()"
+                        >
+                        supprimer</button> -->
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- 
+        <div class="alert alert-danger" *ngIf="errorMessage">
+            {{ errorMessage }}
+          </div>
+          -->
+    </div>
+    </div>
+    <pre>
+        {{bienForm.value | json}}
+    </pre>

@@ -1,4 +1,4 @@
-import { ProprietaireService } from './../../services/proprietaire.service';
+import { ProprietaireService } from './../../services/gestion-utilisateur/proprietaire.service';
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';

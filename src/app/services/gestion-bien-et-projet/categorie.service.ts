@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Categorie } from '../model/categorie';
+import { Categorie } from '../../model/categorie';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategorieService {
 
-  public readonly url_categorie: string;
+  public readonly url_categorie: string = "http://localhost:8082/categories";
 
   constructor(private http: HttpClient) { }
 

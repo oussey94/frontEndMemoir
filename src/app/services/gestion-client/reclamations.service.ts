@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Reclamation } from '../model/reclamation';
+import { Contrat } from '../../model/contrat';
+import { Etat } from '../../model/etat';
+import { Reclamation } from '../../model/reclamation';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +11,21 @@ import { Reclamation } from '../model/reclamation';
 export class ReclamationsService {
 
   public readonly url_reclamations: string = 'http://localhost:8088/reclamations';
+  public readonly url_etats: string = 'http://localhost:8088/etats';
+  public readonly url_contrats: string = 'http://localhost:8088/contrats';
 
   constructor(private http: HttpClient) { }
 
   public getAllReclamations(): Observable<Reclamation[]>{
     return this.http.get<Reclamation[]>(this.url_reclamations);
+  }
+
+  public getAllEtatsInRe(): Observable<Etat[]>{
+    return this.http.get<Etat[]>(this.url_etats);
+  }
+
+  public getAllContratsInRe(): Observable<Contrat[]>{
+    return this.http.get<Contrat[]>(this.url_contrats);
   }
 
   public getReclamationById(id: number): Observable<Reclamation>{

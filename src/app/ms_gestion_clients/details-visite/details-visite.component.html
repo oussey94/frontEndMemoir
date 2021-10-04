@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="card" *ngIf="visit">
+    <div class="card shadow mb-4" *ngIf="visit">
         <div class="card-header text-white text-center bg-primary text-uppercase">
            Les détails de la visite
         </div>
@@ -12,42 +12,50 @@
                       <div class="col-md-8">{{visit.dateVisite | date:"dd/MM/yyyy"}}</div>
 
                   </div>
+                  <hr>
 
                   <div class="row">
                       <div class="col-md-4">Heure de la visite</div>
                       <div class="col-md-8">{{visit.heureVisite}}</div>
 
                   </div>
+                  <hr>
+
 
                   <div class="row">
                     <div class="col-md-4">Client</div>
                     <div class="col-md-8">{{visit.clientBean.nom}} {{visit.clientBean.prenom}}</div>
 
                 </div>
+                <hr>
+
 
                 <div class="row">
                     <div class="col-md-4">Bien immobillier</div>
                     <div class="col-md-8">{{visit.bienImmobiliereBean.nomBien}}</div>
 
                 </div>
+                <hr>
+
 
                 <div class="row">
                     <div class="col-md-4">Description du Bien</div>
                     <div class="col-md-8">{{visit.bienImmobiliereBean.description}}</div>
 
                 </div>
+                <hr>
+
 
               </div>
-       <!--
-        <div class="col-md-4">
-          <img 
-              [src]="bien.imageUrl" 
-              [title]="bien.hotelName | titlecase"  
+       
+              <div class="col-md-4">
+                <img 
+              src="{{this.bienImmobillierService.bien_url+'/photoBien/'+visit.bienImmobiliereBean.idBienImmo}}" 
+              [title]="visit.bienImmobiliereBean.nomBien| titlecase"  
               class="card-img-top" 
-              [alt]="bien.hotelName"
-          />
-        </div>
-        -->
+              [alt]="visit.bienImmobiliereBean.nomBien"
+              />
+              </div>
       </div>
     </div>
 

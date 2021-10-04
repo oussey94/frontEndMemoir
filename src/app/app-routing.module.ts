@@ -10,6 +10,7 @@ import { EditBienComponent } from './ms_gestion_bien_et_projet/edit-bien/edit-bi
 import { EditProjetComponent } from './ms_gestion_bien_et_projet/edit-projet/edit-projet.component';
 import { LesBiensImmobilliersComponent } from './ms_gestion_bien_et_projet/les-biens-immobilliers/les-biens-immobilliers.component';
 import { ProjetComponent } from './ms_gestion_bien_et_projet/projet/projet.component';
+import { UpdateBienComponent } from './ms_gestion_bien_et_projet/update-bien/update-bien.component';
 import { AddContratComponent } from './ms_gestion_clients/add-contrat/add-contrat.component';
 import { AddEtatComponent } from './ms_gestion_clients/add-etat/add-etat.component';
 import { AddReclamationComponent } from './ms_gestion_clients/add-reclamation/add-reclamation.component';
@@ -30,6 +31,9 @@ import { ClientsComponent } from './ms_gestion_utilisateurs/clients/clients.comp
 import { ProprietairesComponent } from './ms_gestion_utilisateurs/proprietaires/proprietaires.component';
 import { UtilisateursComponent } from './ms_gestion_utilisateurs/utilisateurs/utilisateurs.component';
 import { PageAcceuilComponent } from './page-acceuil/page-acceuil.component';
+import { AddBienComponent } from './ms_gestion_bien_et_projet/add-bien/add-bien.component';
+import { LoginComponent } from './ms_gestion_utilisateurs/login/login.component';
+
 
 const routes: Routes = [
   {path: 'home', component: PageAcceuilComponent},
@@ -43,6 +47,7 @@ const routes: Routes = [
   {path: 'utilisateurs', component: UtilisateursComponent},
   {path: 'proprietaire', component: ProprietairesComponent},
   {path: 'clients', component: ClientsComponent},
+  {path: 'login', component: LoginComponent},
 
   {path: 'biens/:id', component: DetailBienComponent, canActivate: [DetailBienGuard] },
   {path: 'visites/:id', component: DetailsVisiteComponent},
@@ -57,8 +62,12 @@ const routes: Routes = [
   {path: 'add-etat', component: AddEtatComponent},
   {path: 'add-reclamation', component: AddReclamationComponent},
   {path: 'add-projet', component: AddProjetComponent},
+  {path: 'add-bien', component: AddBienComponent},
+
 
   {path: 'biens/:id/edit', component: EditBienComponent, canDeactivate: [BienEditGuard] },
+  {path: 'bienss/:id', component: UpdateBienComponent, canDeactivate: [BienEditGuard] },
+
   {path: 'updateVisites/:id', component: EditVisiteComponent},
   {path: 'updateReclamations/:id', component: EditReclamationComponent},
   {path: 'updateEtats/:id', component: EditEtatComponent},

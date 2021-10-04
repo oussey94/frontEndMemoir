@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card shadow mb-4">
         <table class="table table-striped">
-            <tr><th>idReclamation</th><th>Commentaire</th><th>--</th><th>Action</th><th>--</th></tr>
+            <tr><th>idReclamation</th><th>Commentaire</th><th>Etat</th><th>Contrat</th><th>--</th><th>Action</th><th>--</th></tr>
             <thead>
                 <tr>
                     <th>Liste des reclamations</th>
@@ -11,6 +11,8 @@
                 <tr>
                     <td>{{reclamation.idReclamation}}</td>
                     <td>{{reclamation.commentaire}}</td>
+                    <td>{{reclamation.etat.nomEtat}}</td>
+                    <td>{{reclamation.contrat.idContrat}}</td>
                    <!-- <td><a class="btn btn-outline-danger" (click)="deleteVisite(visite)">Supprimer</a></td> -->
                     <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/updateReclamations', reclamation.idReclamation]">
                         edit

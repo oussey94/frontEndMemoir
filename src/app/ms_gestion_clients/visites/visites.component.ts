@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Visite } from 'src/app/model/visite';
-import { VisitesService } from 'src/app/services/visites.service';
+import { VisitesService } from 'src/app/services/gestion-client/visites.service';
 
 @Component({
   selector: 'app-visites',
@@ -15,7 +15,7 @@ export class VisitesComponent implements OnInit {
 
   ngOnInit(): void {
     this.visiteService.listeDesVisites().subscribe(visitess =>{
-      //console.log(visitess);
+      console.log("visiiii: ",visitess);
       this.visites=visitess;
     });
   }

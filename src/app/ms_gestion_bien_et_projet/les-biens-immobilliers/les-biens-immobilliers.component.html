@@ -12,7 +12,7 @@
 <div class="my-2">
   <div class="row">
     <div class="col-md-4">
-      <span>Filtre actuel: </span>
+      <span>Recherche: </span>
       <b>{{bienFilter}}</b>
     </div>
     <div class="col-md-8 form-group">
@@ -29,7 +29,7 @@
     <div class="col mb-4" *ngFor="let bien of filteredBiens">
       <div class="card">
         <img 
-        src="{{this.bienImmobillierService.bien_url+'/photoBien/'+bien.id}}" 
+        src="{{this.bienImmobillierService.bien_url+'/photoBien/'+bien.idBienImmo+'?ts='+getTS()}}" 
         [title]="bien.nomBien| titlecase"  
         class="card-img-top" 
         [alt]="bien.nomBien"
@@ -44,10 +44,18 @@
           <div class="d-flex justify-content-between align-items-baseline">
             <app-notation [rating]="bien.rating" (starRatingClicked)="receiveRatingClicked($event)">
             </app-notation>
-            <span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/biens', bien.id, 'edit']">
+            <span class="material-icons bg-primary text-white p-2 rounded-circle btn" (click)="onEditPhoto(bien)">
               edit
             </span>
-            <span class="material-icons bg-info text-white p-2 rounded-circle btn" [routerLink]="['/biens', bien.id]">
+            <form (ngSubmit)="uploadPhoto()"  *ngIf="editPhoto && currentBien==bien" enctype="multipart/form-data">
+              <input type="file" (change)="onSelectedFile($event)">
+              <button class="btn btn-success"  type="submit" >Upload</button>
+              {{progress}}
+            </form>
+            <span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/bienss', bien.idBienImmo]">
+              edit
+            </span>
+            <span class="material-icons bg-info text-white p-2 rounded-circle btn" [routerLink]="['/biens', bien.idBienImmo]">
               keyboard_arrow_right
             </span>
           </div>

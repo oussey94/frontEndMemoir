@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Reclamation } from 'src/app/model/reclamation';
-import { ReclamationsService } from 'src/app/services/reclamations.service';
+import { ReclamationsService } from 'src/app/services/gestion-client/reclamations.service';
 
 @Component({
   selector: 'app-reclamations',
@@ -15,6 +15,7 @@ export class ReclamationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.reclamationService.getAllReclamations().subscribe( recl => {
+      console.log("reclll: ",recl);
       this.reclamations = recl;
     });
   }

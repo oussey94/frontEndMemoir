@@ -39,7 +39,7 @@
     
               <div class="col-md-4">
                 <img 
-                    [src]="bien.photoName" 
+                    src="{{this.bienImmobillierService.bien_url+'/photoBien/'+bien.idBienImmo}}"  
                     [title]="bien.nomBien | titlecase"  
                     class="card-img-top" 
                     [alt]="bien.nomBien"

@@ -1,4 +1,4 @@
-import { EtatsService } from 'src/app/services/etats.service';
+import { EtatsService } from 'src/app/services/gestion-client/etats.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Etat } from 'src/app/model/etat';

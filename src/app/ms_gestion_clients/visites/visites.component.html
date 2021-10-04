@@ -1,12 +1,11 @@
 <div class="container">
     <div class="card shadow mb-4">
+        <div class="card-header text-white text-center bg-primary text-uppercase">
+            Liste des visites
+        </div>
+        <div class="card-body">
         <table class="table table-striped">
-            <tr ><th>idVisite</th><th>Date viste</th><th>Heure visite</th><th>--</th><th>Action</th><th>--</th></tr>
-            <thead>
-                <tr>
-                    <th>Liste des visites</th>
-                </tr>
-            </thead>
+            <tr ><th>idVisite</th><th>Date viste</th><th>Heure visite</th><th>---------></th><th>Action</th><th><---------</th></tr>
             <tbody *ngFor="let visite of visites">
                 <tr>
                     <td>{{visite.idVisite}}</td>
@@ -29,5 +28,12 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-outline-primary d-flex" [routerLink] = "['/add-visite']">
+            <span class="material-icons">add</span>
+            ajouter une visite
+        </button>
+    </div>
     </div>
 </div>

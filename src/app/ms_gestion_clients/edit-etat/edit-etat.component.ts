@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Etat } from 'src/app/model/etat';
-import { EtatsService } from 'src/app/services/etats.service';
+import { EtatsService } from 'src/app/services/gestion-client/etats.service';
 
 @Component({
   selector: 'app-edit-etat',
@@ -27,6 +27,7 @@ export class EditEtatComponent implements OnInit {
     
     this.etatService.getEtatById(this.activatedRoute.snapshot.params.id).subscribe((etat: Etat) => {
       this.displayEtat(etat);
+     // console.log("afffiiiii: ",this.displayEtat(etat));
     });
   }
 

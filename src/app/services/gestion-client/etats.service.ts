@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Etat } from '../model/etat';
+import { Etat } from '../../model/etat';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,11 @@ export class EtatsService {
 
   public getEtatById(id: number): Observable<Etat>{
     const url = `${this.url_etats}/${id}`;
+    return this.http.get<Etat>(url);
+  }
+
+  public getEtatByName(etat: Etat): Observable<Etat>{
+    const url = `${this.url_etats}/${etat.nomEtat}`;
     return this.http.get<Etat>(url);
   }
 

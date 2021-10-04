@@ -54,15 +54,15 @@
         </div>
 
         <div class="form-group row mb-2" >
-            <label for="dureeEnNbreDeMoisId" class="col-md-2 col-form-label" >
+            <label for="dureeEnNbrDeMoisId" class="col-md-2 col-form-label" >
                 La durée du contrat
             </label>
             <div class="col-md-8">
                 <input 
-                  id="dureeEnNbreDeMoisId"
+                  id="dureeEnNbrDeMoisId"
                   type="number"
                   class="form-control"
-                  formControlName="dureeEnNbreDeMois"
+                  formControlName="dureeEnNbrDeMois"
                   placeholder="la durée du contrat en nombre de mois">
             </div>
             
@@ -79,6 +79,32 @@
                  class="form-control"
                  formControlName="description"
                  placeholder="la description du contrat !!!">
+            </div>
+            
+        </div>
+
+        <div class="form-group row mb-2">
+            <label for="confclientId" class="col-md-2 col-form-label" >
+                Client
+            </label>
+            <div class="col-md-8">
+                <select class="form-control" formControlName="clientID">
+                    <option value="">Choisissez le client</option>
+                    <option *ngFor="let client of clients" [ngValue]="client.idUser">{{client.prenom}} {{client.nom}}</option>
+                </select>
+            </div>
+            
+        </div>
+
+        <div class="form-group row mb-2">
+            <label for="confbienId" class="col-md-2 col-form-label" >
+                Bien immobilier
+            </label>
+            <div class="col-md-8">
+                <select class="form-control" formControlName="bienImmobiliereID">
+                    <option value="">Confirmez le bien</option>
+                    <option *ngFor="let bien of biens" [ngValue]="bien.idBienImmo">{{bien.nomBien}}</option>
+                </select>
             </div>
             
         </div>

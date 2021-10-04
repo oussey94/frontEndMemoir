@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Reclamation } from 'src/app/model/reclamation';
-import { ReclamationsService } from 'src/app/services/reclamations.service';
+import { ReclamationsService } from 'src/app/services/gestion-client/reclamations.service';
 
 @Component({
   selector: 'app-edit-reclamation',
@@ -15,7 +15,11 @@ export class EditReclamationComponent implements OnInit {
   reclamationForm: FormGroup;
   errorMessage: string = "Probléme lors de la modification !!!";
 
-  constructor(private reclamationService: ReclamationsService, private activatedRoute: ActivatedRoute, private fb: FormBuilder, private router: Router) { }
+  constructor(
+    private reclamationService: ReclamationsService, 
+    private activatedRoute: ActivatedRoute, 
+    private fb: FormBuilder, 
+    private router: Router) { }
 
   ngOnInit(): void {
     this.reclamationForm = this.fb.group({

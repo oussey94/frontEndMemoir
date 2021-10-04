@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Etat } from 'src/app/model/etat';
-import { EtatsService } from 'src/app/services/etats.service';
+import { EtatsService } from 'src/app/services/gestion-client/etats.service';
 
 @Component({
   selector: 'app-etats',

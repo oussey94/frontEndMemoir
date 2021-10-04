@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contrat } from 'src/app/model/contrat';
-import { ContratsService } from 'src/app/services/contrats.service';
+import { ContratsService } from 'src/app/services/gestion-client/contrats.service';
 
 @Component({
   selector: 'app-contrats',

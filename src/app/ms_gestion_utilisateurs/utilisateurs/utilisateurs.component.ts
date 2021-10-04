@@ -1,7 +1,7 @@
 import { MatPaginator } from '@angular/material/paginator';
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { UtilisateurService } from 'src/app/services/utilisateur.service';
+import { UtilisateurService } from 'src/app/services/gestion-utilisateur/utilisateur.service';
 import { Utilisateur } from 'src/app/model/utilisateur';
 import { MatDialog } from '@angular/material/dialog';
 import { EditUtilisateurComponent } from '../edit-utilisateur/edit-utilisateur.component';

@@ -1,7 +1,8 @@
-import { BienImmobillierService } from '../../services/bien-immobillier.service';
+//import { BienImmobillierService } from '../../services/bien-immobillier.service';
 import { Component, OnInit } from '@angular/core';
 import { Bien } from '../../model/bien.model';
-import { BienService } from 'src/app/services/bien.service';
+import { BienService } from 'src/app/services/gestion-bien-et-projet/bien.service';
+import { HttpEventType, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-les-biens-immobilliers',
@@ -11,11 +12,21 @@ import { BienService } from 'src/app/services/bien.service';
 export class LesBiensImmobilliersComponent implements OnInit {
   public title="les biens immobillier disponible";
 
-  public biens: Bien[];
+  public biens;
   public showBadge: boolean ;
   private _bienFilter="mot";
 
-  public filteredBiens: Bien[] = [];
+  //products;
+  editPhoto: boolean;
+  currentBien: any;
+  selectedFiles;
+  progress: number;
+  currentFileUpload: any;
+  //title:string;
+  currentRequest:string;
+ private currentTime: number=0;
+
+  public filteredBiens: any = []; //Bien[]
 
   public receivedRating:string;
   public errMsg: string;
@@ -34,6 +45,7 @@ export class LesBiensImmobilliersComponent implements OnInit {
                     console.log("ousseyyyyy: ",b);
                     this.biens = b;
                     this.filteredBiens = this.biens;
+                    console.log("amyyyyy: ",this.filteredBiens);
               }
               
             /*{
@@ -69,5 +81,40 @@ private filterBiens(criteria: string): Bien[]{
             );
        return res;
 }
+
+onEditPhoto(p) {
+      this.currentBien=p;
+      this.editPhoto=true;
+    }
+  
+    onSelectedFile(event) {
+      this.selectedFiles=event.target.files;
+    }
+  
+    uploadPhoto() {
+          alert("je testtttt");
+      this.progress = 0;
+      this.currentFileUpload = this.selectedFiles.item(0)
+      this.bienImmobillierService.uploadPhotoBien(this.currentFileUpload, this.currentBien.idBienImmo).subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.progress = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          //console.log(this.router.url);
+          //this.getProducts(this.currentRequest);
+          //this.refreshUpdatedProduct();
+          this.currentTime=Date.now();
+        }
+      },err=>{
+        alert("Problème de chargement !!!");
+      });
+  
+  
+  
+      this.selectedFiles = undefined
+    }
+
+    getTS() {
+      return this.currentTime;
+    }
 
 }

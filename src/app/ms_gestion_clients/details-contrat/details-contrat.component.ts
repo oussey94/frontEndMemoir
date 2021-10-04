@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Contrat } from 'src/app/model/contrat';
-import { ContratsService } from 'src/app/services/contrats.service';
+import { BienService } from 'src/app/services/gestion-bien-et-projet/bien.service';
+import { ContratsService } from 'src/app/services/gestion-client/contrats.service';
 
 @Component({
   selector: 'app-details-contrat',
@@ -14,6 +15,7 @@ export class DetailsContratComponent implements OnInit {
 
   constructor(
     private contratService: ContratsService,
+    public bienImmobillierService: BienService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) { }

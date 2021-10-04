@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Projet } from '../model/projet';
+import { Projet } from '../../model/projet';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjetService {
 
-  private url_projet: string="http://localhost:8082/projets";
+  private url_projet: string = "http://localhost:8082/projets";
 
   constructor(private http: HttpClient) { }
 

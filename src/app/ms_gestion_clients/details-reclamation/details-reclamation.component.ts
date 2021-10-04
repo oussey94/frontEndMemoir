@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Reclamation } from 'src/app/model/reclamation';
-import { ReclamationsService } from 'src/app/services/reclamations.service';
+import { ReclamationsService } from 'src/app/services/gestion-client/reclamations.service';
 
 @Component({
   selector: 'app-details-reclamation',
@@ -20,6 +20,7 @@ export class DetailsReclamationComponent implements OnInit {
 
   ngOnInit(): void {
     this.reclamationService.getReclamationById(this.activatedRoute.snapshot.params.id).subscribe(r => {
+      console.log("rrrrr: ",r);
       this.reclamation = r;
     });
   }

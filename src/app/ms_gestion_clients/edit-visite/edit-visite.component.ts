@@ -1,9 +1,11 @@
-import { VisitesService } from './../../services/visites.service';
+import { VisitesService } from './../../services/gestion-client/visites.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Visite } from 'src/app/model/visite';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { formatDate } from '@angular/common';
+import { ClientService } from 'src/app/services/gestion-utilisateur/client.service';
+import { BienService } from 'src/app/services/gestion-bien-et-projet/bien.service';
 
 @Component({
   selector: 'app-edit-visite',
@@ -13,28 +15,44 @@ import { formatDate } from '@angular/common';
 export class EditVisiteComponent implements OnInit {
 
   public current_visite = new Visite();
-  visites: Visite[];
+  visites;//: Visite[];
+  public clients: any;
+  public biens: any;
   public visiteForm : FormGroup;
   public pageTitle: string;
-  errorMessage: string = "Probléme lors de la modification !!!";
+  //errorMessage: string = "Probléme lors de la modification !!!";
 
 
   constructor(
     private fb: FormBuilder,
     private activatedRoute : ActivatedRoute, 
     private router: Router, 
-    private visiteService: VisitesService
+    private visiteService: VisitesService,
+    private clientService: ClientService,
+    private bienService: BienService,
     ) { }
 
   ngOnInit(): void {
 
     this.visiteForm = this.fb.group({
       dateVisite : ['',Validators.required],
-      heureVisite: ['',Validators.required]
+      heureVisite: ['',Validators.required],
+      clientID: ['', Validators.required],
+      bienImmobiliereID: ['', Validators.required]
     });
 
     this.visiteService.getVisiteParId(this.activatedRoute.snapshot.params.id).subscribe((visite: Visite) =>{
       this.displayedVisite(visite);
+    });
+
+    this.clientService.getAllClients().subscribe(data => {
+      console.log("amy11: ",data);
+      this.clients = data;
+    });
+
+    this.bienService.getAllBiens().subscribe(data =>{
+      console.log("amy22: ",data);
+      this.biens = data;
     });
   }
 
@@ -48,7 +66,8 @@ export class EditVisiteComponent implements OnInit {
 
         this.visiteService.updateVisite(this.activatedRoute.snapshot.params.id, visite).subscribe({
           next: () => this.saveCompleted(),
-          error: (err) => this.errorMessage = err
+          error: (err) => { alert("Probléme lors de la modification !"); } //error: (err) => this.errorMessage = err
+
         });
       }
     }
@@ -72,7 +91,9 @@ export class EditVisiteComponent implements OnInit {
     
     this.visiteForm.patchValue({
       dateVisite : this.current_visite.dateVisite,
-      heureVisite: this.current_visite.heureVisite
+      heureVisite: this.current_visite.heureVisite,
+      clientID: this.current_visite.clientID,
+      bienImmobiliereID: this.current_visite.bienImmobiliereID
       
     });
   }

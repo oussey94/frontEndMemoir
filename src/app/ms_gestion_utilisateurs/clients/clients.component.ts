@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ClientService } from 'src/app/services/client.service';
+import { ClientService } from 'src/app/services/gestion-utilisateur/client.service';
 
 @Component({
   selector: 'app-clients',

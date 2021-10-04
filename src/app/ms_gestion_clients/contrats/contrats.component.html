@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card shadow mb-4">
         <table class="table table-striped">
-            <tr class="bg-primary text-white"><th>idContrat</th><th>caution</th><th>prixEffectif</th><th>dateEffectif</th><th>dureeEnNbrDeMois</th><th>description</th><th>--</th><th>Action</th><th>--</th></tr>
+            <tr class="bg-primary text-white"><th>idContrat</th><th>caution</th><th>prixEffectif</th><th>dateEffectif</th><th>durée</th><th>description</th><th>--</th><th>Action</th><th>--</th></tr>
             <thead>
                 <tr>
                     <th>Liste des contrats</th>
@@ -13,7 +13,7 @@
                     <td>{{contrat.caution}}</td>
                     <td>{{contrat.prixEffectif}}</td>
                     <td>{{contrat.dateEffectif | date:"dd/MM/yyyy"}}</td>
-                    <td>{{contrat.dureeEnNbreDeMois}}</td>
+                    <td>{{contrat.dureeEnNbrDeMois}} mois</td>
                     <td>{{contrat.description}}</td>
                    <!-- <td><a class="btn btn-outline-danger" (click)="deleteVisite(visite)">Supprimer</a></td> -->
                     <td>
