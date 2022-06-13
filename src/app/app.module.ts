@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {registerLocaleData} from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { AppRoutingModule } from './app-routing.module';
@@ -47,10 +47,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { AddBienComponent } from './ms_gestion_bien_et_projet/add-bien/add-bien.component';
 import { UpdateBienComponent } from './ms_gestion_bien_et_projet/update-bien/update-bien.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './ms_gestion_utilisateurs/login/login.component';
+import { DataTablesModule } from 'angular-datatables';
+// For MDB Angular Free
+import { NavbarModule, WavesModule, ButtonsModule , IconsModule} from 'angular-bootstrap-md'
 
 
 registerLocaleData(localeFr, 'fr');
@@ -94,11 +100,14 @@ registerLocaleData(localeFr, 'fr');
     ConfirmeDialogueUtilisateurComponent,
     AddBienComponent,
     UpdateBienComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    DataTablesModule,
     BrowserAnimationsModule,
+    MDBBootstrapModule.forRoot(),
     MatTableModule,
     HttpClientModule,
     MatPaginatorModule,
@@ -109,7 +118,9 @@ registerLocaleData(localeFr, 'fr');
     MatSelectModule,
     FormsModule,
     MatDialogModule,
-    ReactiveFormsModule
+    MatSidenavModule,
+    ReactiveFormsModule,
+    NavbarModule, WavesModule, ButtonsModule, IconsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -7,8 +7,8 @@ export class Visite {
     idVisite: number;
     dateVisite: Date;
     heureVisite: Time;
-    client: Client;
-    bien: Bien
+    clientBean: Client;
+    bienImmobiliereBean: Bien
     clientID: number;
     bienImmobiliereID: number;
 }

@@ -1,15 +1,17 @@
 <div class="container">
     <div class="card shadow mb-4">
-        <table class="table table-striped">
-            <tr class="bg-primary text-white"><th>idContrat</th><th>caution</th><th>prixEffectif</th><th>dateEffectif</th><th>durée</th><th>description</th><th>--</th><th>Action</th><th>--</th></tr>
+        <div class="card-header text-white text-center bg-primary text-uppercase">
+            Liste des contrats
+        </div>
+        <div class="card-body">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table table-striped">
             <thead>
-                <tr>
-                    <th>Liste des contrats</th>
+                <tr class="text-center">
+                    <th>caution</th><th>prixEffectif</th><th>dateEffectif</th><th>durée</th><th>description</th><th>Action</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let contrat of contrats">
-                <tr>
-                    <td>{{contrat.idContrat}}</td>
+            <tbody>
+                <tr  *ngFor="let contrat of contrats" class="text-center">
                     <td>{{contrat.caution}}</td>
                     <td>{{contrat.prixEffectif}}</td>
                     <td>{{contrat.dateEffectif | date:"dd/MM/yyyy"}}</td>
@@ -17,17 +19,14 @@
                     <td>{{contrat.description}}</td>
                    <!-- <td><a class="btn btn-outline-danger" (click)="deleteVisite(visite)">Supprimer</a></td> -->
                     <td>
-                        <span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/updateContrats', contrat.idContrat]">
+                        <span class="material-icons p-2 rounded-circle btn-outline-primary mr-3" [routerLink]="['/updateContrats', contrat.idContrat]">
                         edit
                       </span>
-                    </td>
-                    <td>
-                        <span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/contrats', contrat.idContrat]">
-                        keyboard_arrow_right
+        
+                        <span class="material-icons p-2 rounded-circle btn-outline-primary mr-3" [routerLink]="['/contrats', contrat.idContrat]">
+                            visibility
                       </span>
-                    </td>
-                    <td>
-                        <span class="material-icons bg-primary text-white p-2 rounded-circle btn" (click)="supprimerContrat(contrat)">
+                        <span class="material-icons p-2 rounded-circle btn-outline-primary" (click)="supprimerContrat(contrat)">
                             delete
                         </span>
                         <!--<button class="btn btn-outline-danger mr-3" type="button" (click)="deleteVisite(visite)">supprimer</button> -->
@@ -35,5 +34,12 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-outline-primary d-flex" [routerLink] = "['/add-contrat']">
+            <span class="material-icons">add</span>
+            ajouter un contrat
+        </button>
+    </div>
     </div>
 </div>

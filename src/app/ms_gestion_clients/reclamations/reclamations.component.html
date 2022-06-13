@@ -1,29 +1,28 @@
 <div class="container">
     <div class="card shadow mb-4">
-        <table class="table table-striped">
-            <tr><th>idReclamation</th><th>Commentaire</th><th>Etat</th><th>Contrat</th><th>--</th><th>Action</th><th>--</th></tr>
+        <div class="card-header text-white text-center bg-primary text-uppercase">
+            Liste des reclamations
+        </div>
+        <div class="card-body"></div>
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table table-striped">
             <thead>
-                <tr>
-                    <th>Liste des reclamations</th>
-                </tr>
+                <tr  class="text-center"><th>Commentaire</th><th>Etat</th><th>Contrat</th><th>Action</th></tr>
             </thead>
-            <tbody *ngFor="let reclamation of reclamations">
-                <tr>
-                    <td>{{reclamation.idReclamation}}</td>
+            <tbody>
+                <tr *ngFor="let reclamation of reclamations" class="text-center">
+                    
                     <td>{{reclamation.commentaire}}</td>
                     <td>{{reclamation.etat.nomEtat}}</td>
                     <td>{{reclamation.contrat.idContrat}}</td>
                    <!-- <td><a class="btn btn-outline-danger" (click)="deleteVisite(visite)">Supprimer</a></td> -->
-                    <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/updateReclamations', reclamation.idReclamation]">
+                    <td><span class="material-icons p-2 rounded-circle btn-outline-primary mr-3" [routerLink]="['/updateReclamations', reclamation.idReclamation]">
                         edit
                       </span>
-                    </td>
-                    <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/reclamations', reclamation.idReclamation]">
-                        keyboard_arrow_right
+                    <span class="material-icons p-2 rounded-circle btn-outline-primary mr-3" [routerLink]="['/reclamations', reclamation.idReclamation]">
+                        visibility
                       </span>
-                    </td>
-                    <td>
-                        <span class="material-icons bg-primary text-white p-2 rounded-circle btn" (click)="supprimerReclamation(reclamation)">
+                   
+                        <span class="material-icons p-2 rounded-circle btn-outline-primary mr-3" (click)="supprimerReclamation(reclamation)">
                             delete
                             </span>
                         <!--<button class="btn btn-outline-danger mr-3" type="button" (click)="deleteVisite(visite)">supprimer</button> -->

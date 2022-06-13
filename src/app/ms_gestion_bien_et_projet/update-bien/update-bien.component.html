@@ -122,9 +122,9 @@
                     </label>
                     <div class="col-md-8">
                         <img [src]="this.bienService.bien_url+'/photoBien/'+currentbien.idBienImmo+'?ts='+getTS()">
-                        <button *ngIf="!editPhoto" (click)="onEditPhoto(currentbien)">
-                            <span class="glyphicon glyphicon-edit"></span>
-                          </button>
+                        
+                            <span *ngIf="!editPhoto" (click)="onEditPhoto(currentbien)" class="material-icons p-2 rounded-circle btn-outline-primary mr-1">image_search</span>
+                        
                         <span *ngIf="editPhoto">
                             <input
                             type="file" (change)="onSelectedFile($event)"

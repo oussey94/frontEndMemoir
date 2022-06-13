@@ -1,5 +1,5 @@
 <div class="container">
-<h4 *ngIf=" biens && biens.length >0 ">{{title}}</h4>
+<h4 *ngIf=" biens && biens.length >0 "></h4>
 <button class="btn btn-primary d-flex" (click)="toggleIsNewBadge()"> 
     <span class="material-icons">
         {{showBadge ? "visibility_off" : "visibility"}}
@@ -13,10 +13,10 @@
   <div class="row">
     <div class="col-md-4">
       <span>Recherche: </span>
-      <b>{{bienFilter}}</b>
+      <!--<b>{{bienFilter}}</b>-->
     </div>
     <div class="col-md-8 form-group">
-      <input type="text" class="form-control" [(ngModel)]="bienFilter">
+      <input type="text" class="form-control" aria-label="Search" [(ngModel)]="bienFilter">
       <!--<input type="text" class="form-control" [ngModel]="bienFilter" (ngModelChange)="bienFilter=$event"> -->
 
     </div>
@@ -27,7 +27,7 @@
 </div>
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col mb-4" *ngFor="let bien of filteredBiens">
-      <div class="card">
+      <div class="card shadow">
         <img 
         src="{{this.bienImmobillierService.bien_url+'/photoBien/'+bien.idBienImmo+'?ts='+getTS()}}" 
         [title]="bien.nomBien| titlecase"  
@@ -41,23 +41,26 @@
             {{bien.prix| currency : 'fr' : 'symbol' : '1.0-0' : 'fr'}}
           </p>
 
-          <div class="d-flex justify-content-between align-items-baseline">
+          <div class="d-flex justify-content-between align-items-baseline text-center">
             <app-notation [rating]="bien.rating" (starRatingClicked)="receiveRatingClicked($event)">
             </app-notation>
-            <span class="material-icons bg-primary text-white p-2 rounded-circle btn" (click)="onEditPhoto(bien)">
-              edit
+            <span *ngIf="loginService.isAdmin()" class="material-icons p-2 rounded-circle btn-outline-primary mr-1" (click)="onEditPhoto(bien)">
+              image_search
             </span>
-            <form (ngSubmit)="uploadPhoto()"  *ngIf="editPhoto && currentBien==bien" enctype="multipart/form-data">
+            <form  (ngSubmit)="uploadPhoto()"  *ngIf="editPhoto && currentBien==bien && loginService.isAdmin()" enctype="multipart/form-data">
               <input type="file" (change)="onSelectedFile($event)">
               <button class="btn btn-success"  type="submit" >Upload</button>
               {{progress}}
             </form>
-            <span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/bienss', bien.idBienImmo]">
+            <span *ngIf="loginService.isAdmin()" class="material-icons p-2 rounded-circle btn-outline-primary mr-1" [routerLink]="['/bienss', bien.idBienImmo]">
               edit
             </span>
-            <span class="material-icons bg-info text-white p-2 rounded-circle btn" [routerLink]="['/biens', bien.idBienImmo]">
-              keyboard_arrow_right
+            <span class="material-icons p-2 rounded-circle btn-outline-primary mr-1" [routerLink]="['/biens', bien.idBienImmo]">
+              visibility
             </span>
+            <span *ngIf="loginService.isAdmin()" class="material-icons p-2 rounded-circle btn-outline-primary">
+              delete
+              </span>
           </div>
           
 

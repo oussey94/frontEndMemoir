@@ -1,3 +1,5 @@
+import { Role } from "./role";
+
 export class Utilisateur {
     
     idUser: number;
@@ -11,4 +13,6 @@ export class Utilisateur {
     adresse: string;
     age: number;
     ville: string;
+    troles:Role[];
+
 }

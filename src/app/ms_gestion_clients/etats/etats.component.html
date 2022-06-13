@@ -1,27 +1,28 @@
 <div class="container">
     <div class="card shadow mb-4">
+        <div class="card-header text-white text-center bg-primary text-uppercase">
+            Liste des etats
+        </div>
+        <div class="card-body">
         <table class="table table-striped">
-            <tr><th>idEtat</th><th>nomEtat</th><th>--</th><th>Action</th><th>--</th></tr>
             <thead>
-                <tr>
-                    <th class="text-center">Liste des etats</th>
+                <tr class="text-center">
+                    <th>idEtat</th><th>nomEtat</th><th>Action</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let etat of etats">
-                <tr>
+            <tbody>
+                <tr  *ngFor="let etat of etats" class="text-center">
                     <td>{{etat.idEtat}}</td>
                     <td>{{etat.nomEtat}}</td>
                    <!-- <td><a class="btn btn-outline-danger" (click)="deleteVisite(visite)">Supprimer</a></td> -->
-                    <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/updateEtats', etat.idEtat]">
+                    <td><span class="material-icons p-2 rounded-circle btn-outline-primary mr-3" [routerLink]="['/updateEtats', etat.idEtat]">
                         edit
                       </span>
-                    </td>
-                    <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/etats', etat.idEtat]">
-                        keyboard_arrow_right
+                    <span class="material-icons p-2 rounded-circle btn-outline-primary mr-3" [routerLink]="['/etats', etat.idEtat]">
+                        visibility
                       </span>
-                    </td>
-                    <td>
-                        <span class="material-icons bg-primary text-white p-2 rounded-circle btn" (click)="supprimerEtat(etat)">
+                    
+                        <span class="material-icons p-2 rounded-circle btn-outline-primary" (click)="supprimerEtat(etat)">
                             delete
                             </span>
                         <!--<button class="btn btn-outline-danger mr-3" type="button" (click)="deleteVisite(visite)">supprimer</button> -->
@@ -29,5 +30,12 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-outline-primary d-flex" [routerLink] = "['/add-etat']">
+            <span class="material-icons">add</span>
+            ajouter un etat
+        </button>
+    </div>
     </div>
 </div>

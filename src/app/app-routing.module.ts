@@ -36,8 +36,8 @@ import { LoginComponent } from './ms_gestion_utilisateurs/login/login.component'
 
 
 const routes: Routes = [
-  {path: 'home', component: PageAcceuilComponent},
-  {path: '', redirectTo: 'home', pathMatch:'full'},
+  //{path: 'home', component: PageAcceuilComponent},
+  {path: '', redirectTo: 'biens', pathMatch:'full'},
   {path: 'biens', component: LesBiensImmobilliersComponent},
   {path: 'visites', component: VisitesComponent},
   {path: 'reclamations', component: ReclamationsComponent},
@@ -74,7 +74,7 @@ const routes: Routes = [
   {path: 'updateContrats/:id', component: EditContratComponent},
   {path: 'updateProjets/:id', component: EditProjetComponent},
   
-  {path: '**', redirectTo: 'home', pathMatch:'full'}
+  {path: '**', redirectTo: 'biens', pathMatch:'full'}
 ];
 
 @NgModule({

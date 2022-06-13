@@ -1,6 +1,6 @@
 <div class="container">
     <div class="card shadow mb-4">
-      <h2 class="card-header text-center bg-primary text-white">Modifier la visite</h2>
+      <div class="card-header text-center bg-primary text-white text-uppercase">Modification de la visite</div>
     <div class="card-body">
     <form novalidate (ngSubmit)="updateVisite()" [formGroup]="visiteForm" >
 
@@ -35,6 +35,7 @@
             </div>
             
         </div>
+
         <div class="form-group row mb-2">
             <label for="confclientId" class="col-md-2 col-form-label" >
                 Client
@@ -54,7 +55,7 @@
             </label>
             <div class="col-md-8">
                 <select class="form-control" formControlName="bienImmobiliereID">
-                    <option value="">Confirmez le bien</option>
+                    <option value="">bien immobilier</option>
                     <option *ngFor="let bien of biens" [ngValue]="bien.idBienImmo">{{bien.nomBien}}</option>
                 </select>
             </div>

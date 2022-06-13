@@ -19,7 +19,7 @@ export class DetailBienComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    const id: number = +this.route.snapshot.paramMap.get('id');
+    //const id: number = +this.route.snapshot.paramMap.get('id');
 
     /*this.bienImmobillierService.getBiensImmo().subscribe((biens: Bien[]) => {
       this.bien=biens.find(bien => bien.id == id);
@@ -27,7 +27,7 @@ export class DetailBienComponent implements OnInit {
     });
     */
 
-    this.bienImmobillierService.getBienById(this.route.snapshot.params.id).subscribe(con => {
+    this.bienImmobillierService.getBienById((this.route.snapshot.params.id)).subscribe(con => {
       console.log("biennnnn:",con);
       this.bien = con;
       //console.log("contrat:", this.contrat);

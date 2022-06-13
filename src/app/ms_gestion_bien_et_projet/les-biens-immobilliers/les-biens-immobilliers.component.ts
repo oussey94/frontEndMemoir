@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Bien } from '../../model/bien.model';
 import { BienService } from 'src/app/services/gestion-bien-et-projet/bien.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { LoginService } from 'src/app/services/gestion-utilisateur/login.service';
 
 @Component({
   selector: 'app-les-biens-immobilliers',
@@ -36,7 +37,8 @@ export class LesBiensImmobilliersComponent implements OnInit {
   }
 
   constructor(
-        public bienImmobillierService: BienService
+        public bienImmobillierService: BienService,
+        public loginService: LoginService
         ) { }
 
   ngOnInit(): void {

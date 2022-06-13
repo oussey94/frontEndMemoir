@@ -1,3 +1,4 @@
+import { Role } from './role';
 import { Utilisateur } from './utilisateur';
 
 
@@ -14,5 +15,6 @@ export class Client {
     adresse: string;
     age: number;
     ville: string;
+    roles:Role[];
 
 }

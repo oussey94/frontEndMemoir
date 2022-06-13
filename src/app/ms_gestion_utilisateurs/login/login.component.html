@@ -5,24 +5,28 @@
       login
     </div>
     <div class="card-body">
-      <form>
+      <div  class="alert alert-danger" *ngIf="erreur==1">
+        <strong>login ou mot de passe erronés..</strong>
+    </div>
+      <form novalidate (ngSubmit)="onLogin()">
         <div class="form-group row mb-2">
-          <label for="contratCautionId" class="col-md-2 col-form-label" >
+          <label for="usernameId" class="col-md-2 col-form-label" >
             Username
           </label>
           <div class="col-md-8">
               <input 
-               id="contratCautionId"
+               id="usernameId"
                type="text" 
                class="form-control"
-               formControlName="caution"
-               placeholder="Enter username">
+               [(ngModel)]="user.userName"
+               name="userName"
+               placeholder="votre nom d'utilisateur">
           </div>
           
       </div>
 
       <div class="form-group row mb-2">
-        <label for="contratCautionId" class="col-md-2 col-form-label" >
+        <label for="passwordId" class="col-md-2 col-form-label" >
           Password
         </label>
         <div class="col-md-8">
@@ -30,8 +34,9 @@
              id="passwordId"
              type="password" 
              class="form-control"
-             formControlName="caution"
-             placeholder="Password">
+             [(ngModel)]="user.password"
+             name="password"
+             placeholder="votre mot de pass">
         </div>
         
     </div>
@@ -42,7 +47,7 @@
     </div>
       
     <div class="card-footer">
-      <button type="submit" class="btn btn-outline-primary">S'identifier
+      <button type="button" class="btn btn-outline-primary" (click)="onLogin()">S'identifier
         <span class="material-icons-outlined">login</span>
       </button>
     </div>

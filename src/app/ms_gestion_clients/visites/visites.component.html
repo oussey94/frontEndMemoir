@@ -4,24 +4,25 @@
             Liste des visites
         </div>
         <div class="card-body">
-        <table class="table table-striped">
-            <tr ><th>idVisite</th><th>Date viste</th><th>Heure visite</th><th>---------></th><th>Action</th><th><---------</th></tr>
-            <tbody *ngFor="let visite of visites">
-                <tr>
-                    <td>{{visite.idVisite}}</td>
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table table-striped">
+          <thead>
+            <tr class="text-center">
+                <th>Date viste</th><th>Heure visite</th><th>Action</th>
+            </tr>
+          </thead>
+            <tbody>
+                <tr  *ngFor="let visite of visites" class="text-center">
                     <td>{{visite.dateVisite | date:"dd/MM/yyyy"}}</td>
                     <td>{{visite.heureVisite }}</td>
                    <!-- <td><a class="btn btn-outline-danger" (click)="deleteVisite(visite)">Supprimer</a></td> -->
-                    <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/updateVisites', visite.idVisite]">
+                    <td><span class="material-icons p-2 rounded-circle btn-outline-primary mr-3" [routerLink]="['/updateVisites', visite.idVisite]">
                         edit
                       </span>
-                    </td>
-                    <td><span class="material-icons bg-primary text-white p-2 rounded-circle btn" [routerLink]="['/visites', visite.idVisite]">
-                        keyboard_arrow_right
+                    <span class="material-icons p-2 rounded-circle btn-outline-primary mr-3" [routerLink]="['/visites', visite.idVisite]">
+                        visibility
                       </span>
-                    </td>
-                    <td>
-                        <span class="material-icons bg-primary text-white p-2 rounded-circle btn" (click)="deleteVisite(visite)">
+                    
+                        <span class="material-icons p-2 rounded-circle btn-outline-primary" (click)="deleteVisite(visite)">
                             delete
                             </span>
                     </td>
